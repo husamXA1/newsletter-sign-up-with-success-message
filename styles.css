@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* Global Rules */
+html {
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+label {
+    display: block;
+}
+
+.success-message,
+.sign-up-form {
+    display: none;
+}
+
+/* Sign up form */
+.sign-up-form.active {
+    display: block;
+    width: 100%;
+    max-width: 840px;
+    margin: 0 auto;
+    background-color: hsl(0, 0%, 100%);
+}
+
+.image-section img {
+    width: 100%;
+}
+
+.form-section {
+    padding: 2em 1em;
+}
+
+.main-title {
+    font-size: 2.5rem;
+}
+
+.description {
+    margin-top: 1em;
+}
+
+.features {
+    margin: 2em 0 3em;
+}
+
+.feature + .feature{
+    margin-top: 0.5em;
+}
+
+.feature {
+    display: flex;
+    align-items: flex-start;
+}
+
+.feature svg {
+    width: 1.5em;
+    height: 1.5em;
+    margin-right: 1em;
+}
+
+.sub-title {
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.email-field {
+    display: block;
+    width: 100%;
+    padding: 1.5em;
+    border-radius: 5px;
+    border: 1px solid hsl(231, 7%, 60%);
+    margin: 0.5em 0 2em;
+    outline: none;
+    cursor: pointer;
+}
+
+.email-field:hover,
+.email-field:focus,
+.email-field:active {
+    border-color: hsl(234, 29%, 20%);
+}
+
+.email-container.error .email-field {
+    border-color: hsl(4, 100%, 67%);
+    background-color: hsl(4, 100%, 95%);
+    color: hsl(4, 100%, 67%);
+}
+
+.email-container {
+    position: relative;
+}
+
+.email-container.error::before {
+    content: attr(data-error-message);
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 0.75rem;
+    color: hsl(4, 100%, 67%);
+    font-weight: 700;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 1.5em;
+    border: none;
+    background-color: hsl(234, 29%, 20%);
+    color: hsl(0, 0%, 100%);
+    font-weight: 700;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.submit-btn:hover,
+.submit-btn:active {
+    background: linear-gradient(to right, hsl(4, 100%, 40%), hsl(4, 100%, 67%));
+    filter: drop-shadow(0 10px 10px hsl(4, 100%, 90%));
+}
+
+@media (min-width: 840px) {
+    body {
+        background-color: hsl(234, 29%, 20%);
+    }
+
+    .sign-up-form.active {
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        justify-content: space-between;
+        margin: 100px auto;
+        padding: 2em;
+        border-radius: 2em;
+    }
+}
+
+/* Success message */
+.success-message.active {
+    height: 100vh;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.success-message svg {
+    width: 75px;
+    height: 75px;
+    margin: 150px 0 2em;
+}
+
+.success-message .title {
+    font-size: 3rem;
+}
+
+@media (min-width: 840px) {
+    .success-message.active {
+        background-color: hsl(0, 0%, 100%);
+        display: block;
+        width: 500px;
+        height: fit-content;
+        padding: 3em;
+        border-radius: 2em;
+
+        /* Centering the card */
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .success-message svg {
+        margin: 0;
+    }
+
+    .success-message .description {
+        margin: 2em 0;
+    }
+}
